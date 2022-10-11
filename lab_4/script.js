@@ -3,12 +3,9 @@
 const listFitstObject = document.getElementById('firstObject');
 const listSecondObject = document.querySelector('.secondObject');
 
-function randomNum() {
-    return Math.floor(Math.random() * 255);
-}
 
 function randomColor() {
-    return 'rgb(' + randomNum() + ',' + randomNum() + ',' + randomNum() + ')';
+    return 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
 }
 
 
