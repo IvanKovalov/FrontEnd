@@ -1,5 +1,3 @@
-const form = document.getElementById("myForm");
-
 let answers = [];
 const body = document.querySelector("body");
 const answersDiv = document.createElement("div");	
@@ -38,7 +36,6 @@ const ValidateRules = {
   department: new RegExp(/[a-zA-ZА-ЯІЇЄа-яіїє]$/),
   email: new RegExp(/^[a-z\.-]+@[a-z]+\.com$/),
   adress: new RegExp(/^м\.\s[а-яґєіїА-ЯҐЄІЇ]+$/),
-
 }
 
 const clearAll = () => {
@@ -86,3 +83,48 @@ const showResponse = () => {
 	}
 }
 
+function generateTable () {
+	const body = document.body,
+		  tbl = document.createElement('table');
+	let elementCounter = 1;
+	for (i = 0; i < 6; i++) {
+		const tr = tbl.insertRow();
+		for (j = 1; j <= 6; j++) {
+			const td = tr.insertCell();
+		  td.appendChild(document.createTextNode(elementCounter));
+		  td.setAttribute("id", "cell_" + elementCounter)
+		  elementCounter ++;
+		}
+	}
+	const tableDiv = document.createElement('div');
+	body.appendChild(tableDiv);
+	tableDiv.appendChild(tbl);
+}
+
+generateTable();
+
+const myCell = document.getElementById('cell_5');
+
+function generateRandomColor() {
+    function generateRandomNum() {
+        return Math.floor(Math.random() * 255);
+    }
+    return `rgb(${generateRandomNum()},${generateRandomNum()},${generateRandomNum()})`;
+}
+
+myCell.onclick = () => {
+    myCell.style.backgroundColor = document.getElementById('input_color').value;
+};
+
+myCell.onmouseover = () => {
+    myCell.style.backgroundColor = generateRandomColor();
+};
+
+myCell.ondblclick = () => {
+	const randColour = generateRandomColor();
+	document.querySelectorAll('td').forEach(cell => {
+		if(cell.id != "cell_5"){
+			cell.style.backgroundColor = randColour;
+		}
+	});
+}
