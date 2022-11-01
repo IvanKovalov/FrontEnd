@@ -1,6 +1,6 @@
 let answers = [];
 const body = document.querySelector("body");
-const answersDiv = document.createElement("div");	
+
 let isValidData = true;
   
 function handleFormSubmit(event) {
@@ -44,9 +44,6 @@ const clearAll = () => {
         field.style.border = "1px black solid";
 	});
 
-	while (answersDiv.firstChild) {
-        answersDiv.removeChild(answersDiv.firstChild);
-    }
     answers = [];
 	isValidData = true;
 	wrongResult = [];
@@ -57,13 +54,11 @@ const validateElement = (elementName, elementValue) => {
     if (elementName == 'submit_btn') {
         return;
     } else if(elementName == 'date') {
-		const answer = document.createElement("p");
-		answer.innerHTML = `<b>${ResponseForm[elementName]}</b> ${elementValue}`;
+		const answer = elementValue;
 		answers.push(answer);
         return;
     } else if (ValidateRules[elementName].test(elementValue)) {
-        const answer = document.createElement("p");
-        answer.innerHTML = `<b>${ResponseForm[elementName]}</b> ${elementValue}`;
+        const answer = elementValue;
         answers.push(answer);
     } else {
 		isValidData = false;
@@ -74,12 +69,15 @@ const validateElement = (elementName, elementValue) => {
 }
 
 const showResponse = () => {
+    let newWin = window.open('about:blank', 'data', 'width=300,height=200');
 	if(isValidData){
-	const user_info = document.createElement("h3");
-	user_info.innerHTML = "Введені дані";
-	answersDiv.appendChild(user_info);
-	answers.forEach(answer => answersDiv.appendChild(answer));
-	body.appendChild(answersDiv);
+    newWin.document.write(`
+    ПІБ: ${ answers[0] } <br>
+    Факультет: ${ answers[1] } <br>
+    Дата народження: ${ answers[2] } <br>
+    Адреса: ${ answers[3] } <br>
+    Email: ${ answers[4] }
+    `);
 	}
 }
 
