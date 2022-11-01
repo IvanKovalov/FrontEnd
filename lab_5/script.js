@@ -69,8 +69,8 @@ const validateElement = (elementName, elementValue) => {
 }
 
 const showResponse = () => {
-    let newWin = window.open('about:blank', 'data', 'width=300,height=200');
 	if(isValidData){
+    let newWin = window.open('about:blank', 'data', 'width=300,height=200');
     newWin.document.write(`
     ПІБ: ${ answers[0] } <br>
     Факультет: ${ answers[1] } <br>
