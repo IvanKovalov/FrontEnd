@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product img {
+    height: 20vh;
+    transition: transform 250ms ease-in-out;
+}
+
+.product {
+    text-align: center;
+    margin: 10px;
+    width: 16vw;
+    border: 2px double dimgrey;
+    padding: 50px;
+}
+
+.product img:hover{
+    transform: scale(1.1);
+}
