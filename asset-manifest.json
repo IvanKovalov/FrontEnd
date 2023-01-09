@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FrontEnd/lab_7/task/static/css/main.fdb52457.css",
+    "main.js": "/FrontEnd/lab_7/task/static/js/main.3d151546.js",
+    "index.html": "/FrontEnd/lab_7/task/index.html",
+    "main.fdb52457.css.map": "/FrontEnd/lab_7/task/static/css/main.fdb52457.css.map",
+    "main.3d151546.js.map": "/FrontEnd/lab_7/task/static/js/main.3d151546.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdb52457.css",
+    "static/js/main.3d151546.js"
+  ]
+}
